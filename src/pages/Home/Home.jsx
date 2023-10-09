@@ -2,6 +2,7 @@ import Services from "../../Service/Services";
 import Banner from "../shared/Banner/Banner";
 import Footer from "../shared/Footer/Footer";
 import Navbar from "../shared/Navbar/Navbar";
+import Planner from "../shared/Planner/Planner";
 import TeamSection from "../shared/TeamSection/TeamSection";
 
 
@@ -13,6 +14,7 @@ const Home = () => {
             <Navbar></Navbar>
             <Banner></Banner>
             <Services></Services>
+            <Planner></Planner>
             <TeamSection></TeamSection>
             <Footer></Footer>
         </div>

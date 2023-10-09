@@ -1,5 +1,5 @@
 import { AiOutlineArrowRight } from 'react-icons/Ai';
-import image6 from "../../../assets/image/SI6.jpg"
+import image6 from "../../../assets/image/banner.jpg"
 const Banner = () => {
     return (
         <div>

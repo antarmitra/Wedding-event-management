@@ -1,12 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css"
 
 
 const Navbar = () => {
     const navLinks = <>
         <div className="lg:flex justify-between gap-14 items-center">
-            <li><NavLink className="text-lg font-semibold text-white hover:bg-orange-400 px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
-            <li><NavLink className="text-lg font-semibold text-white hover:bg-orange-400 px-2 py-1 rounded-lg" to="/login">Login</NavLink></li>
-            <li><NavLink className="text-lg font-semibold text-white hover:bg-orange-400 px-2 py-1 rounded-lg" to="/register">Register</NavLink></li>
+            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
+            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/login">Login</NavLink></li>
+            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/register">Register</NavLink></li>
 
             <div className="flex gap-2 mt-4 md:mt-4 lg:mt-0">
                 <div className="navbar-end">
@@ -21,7 +22,6 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-
     </>
     return (
         <div className="navbar bg-black bg-opacity-25 p-5 rounded-lg ">
