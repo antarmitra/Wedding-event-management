@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 
@@ -6,6 +7,7 @@ const Login = () => {
         <div>
             <Navbar></Navbar>
             <h2>This is Login Page</h2>
+            <Footer></Footer>
         </div>
     );
 };
