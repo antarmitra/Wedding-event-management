@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../shared/Navbar/Navbar";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import DetailsCard from "./DetailsCard";
 import Footer from "../shared/Footer/Footer";
 
