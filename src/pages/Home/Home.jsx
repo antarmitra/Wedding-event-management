@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Services from "../../Service/Services";
 import Banner from "../shared/Banner/Banner";
 import Footer from "../shared/Footer/Footer";
@@ -7,7 +8,9 @@ import TeamSection from "../shared/TeamSection/TeamSection";
 
 
 const Home = () => {
-    
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[])
     
     return (
         <div>

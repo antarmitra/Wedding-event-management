@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { AiOutlineArrowRight } from 'react-icons/Ai';
 import { Link } from 'react-router-dom';
 
 
 
 const ServicesCard = ({ service }) => {
-    const { id, image, title, description } = service;
+    const { id, image, title, description, price } = service;
 
 
     return (
@@ -17,6 +18,7 @@ const ServicesCard = ({ service }) => {
                     <h2 className="card-title text-lg md:text-xl lg:text-2xl">{title}</h2>
                     <hr className="text-bold text-orange " />
                     <p className='lg:text-sm md:text-sm font-semibold text-gray-400'>{description}</p>
+                    <p className='  font-semibold  text-lg text-orange-400'>Price: {price}</p>
                     <div className="card-actions mt-5">
                         <Link to={`/services/${id}`}>
                             <button className="btn text-white bg-orange-400 px-3 py-2 rounded-lg">Show Details<AiOutlineArrowRight></AiOutlineArrowRight></button>

@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 const DetailsCard = ({ service }) => {
-    const { id, image, title, description, price } = service;
+    const {image, title, description, price } = service;
     // console.log(title);
     return (
-            <div className="mt-20">
+            <div className=" mt-3 mb-20">
                 <div className='relative'>
                     <div>
                         <img className='w-full h-[600px] rounded-lg' src={image} alt="" />

@@ -6,24 +6,42 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut()
-        .then()
-        .catch()
+            .then()
+            .catch()
     }
+    console.log(user);
 
     const navLinks = <>
         <div className="lg:flex justify-between gap-14 items-center">
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/gallery">Gallery</NavLink></li>
-            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/register">Register</NavLink></li>
+            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/portfolio">Portfolio</NavLink></li>
 
 
 
             {
                 user ?
-                    <button onClick={handleSignOut} className="btn bg-orange-400 text-white">Sign Out</button>
-                    :
+                    <div className="flex gap-2 flex-row-reverse lg:flex-row">
+                        <div>
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <li><a>{user.displayName}</a></li>
+                                    <li><a>{user.email}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button onClick={handleSignOut} className="btn bg-orange-400 text-white">Sign Out</button>
+
+                        </div>
+                    </div> :
                     <div className="flex gap-2 mt-4 md:mt-4 lg:mt-0">
                         <div className="navbar-end">
                             <Link to="/login">

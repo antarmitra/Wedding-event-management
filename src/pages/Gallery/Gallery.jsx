@@ -26,7 +26,7 @@ const Gallery = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 grid-cols-2 gap-10  mt-20 mb-10">
+            <div className="grid grid-cols-1 grid-cols-2 gap-16  mt-20 mb-10 md:p-4 p-2 lg:p-0">
                 <div>
                     <img className="w-[600px]" src={gallery1} alt="" />
                 </div>

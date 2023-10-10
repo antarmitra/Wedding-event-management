@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Details from "../pages/Details/Details";
 import Gallery from "../pages/Gallery/Gallery";
 import PrivateRoute from "./PrivateRoute";
+import Portfolio from "../pages/Portfolio/Portfolio";
 
 
 const router = createBrowserRouter([
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
             },
             {
                 path:"/gallery",
-                element:<Gallery></Gallery>
+                element:<PrivateRoute><Gallery></Gallery></PrivateRoute>
+            },
+            {
+                path: "/portfolio",
+                element: <PrivateRoute><Portfolio></Portfolio></PrivateRoute>
             },
             {
                 path: "/login",

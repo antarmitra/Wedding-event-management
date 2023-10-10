@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../shared/Footer/Footer";
 import Navbar from "../shared/Navbar/Navbar";
 import register from "../../assets/image/register.jpg"
@@ -6,10 +6,37 @@ import flower2 from "../../assets/image/flower2.jpg"
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+
+    const auth = getAuth(app);
+
+    const Provider = new GoogleAuthProvider();
+
+
+    const handleGoogleSingIn = () => {
+        signInWithPopup(auth, Provider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            navigate(location?.state ? location.state : '/')
+        })
+        .catch(error => {
+            console.log('error', error.message);
+        })
+    }
+
+
+
+    const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log("location in the register page", location);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -26,11 +53,15 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(location?.state ? location.state : '/')
+                toast.success('user create successfully')
+                
             })
             .catch(error => {
                 console.error(error);
             })
 
+            // reset
             e.target.reset();
 
 
@@ -84,7 +115,7 @@ const Register = () => {
 
                             <div className="flex gap-10 mt-5">
                                 <div>
-                                    <button className="btn">
+                                    <button onClick={handleGoogleSingIn} className="btn">
                                         <FaGoogle className="text-xl"></FaGoogle>
                                         Google
                                     </button>
@@ -96,7 +127,7 @@ const Register = () => {
                                     </button>
                                 </div>
                             </div>
-                            <p className="mt-2">Do not have an account, please <Link to="/login" className="text-white font-bold underline">Login</Link></p>
+                            <p className="mt-2">Do not have an account, please <Link to="/login" className="text-white text-lg font-bold underline">Login</Link></p>
                         </form>
                     </div>
 
@@ -106,6 +137,7 @@ const Register = () => {
                 </div>
             </div>
             <Footer></Footer>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
