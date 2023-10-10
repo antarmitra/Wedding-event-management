@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../shared/Footer/Footer";
 import Navbar from "../shared/Navbar/Navbar";
@@ -7,7 +8,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -19,18 +20,18 @@ const Register = () => {
     const Provider = new GoogleAuthProvider();
 
 
+
     const handleGoogleSingIn = () => {
         signInWithPopup(auth, Provider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error => {
-            console.log('error', error.message);
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.log('error', error.message);
+            })
     }
-
 
 
     const { createUser } = useContext(AuthContext);
@@ -48,6 +49,18 @@ const Register = () => {
         const password = form.get('password');
         console.log(name, photo, email, password);
 
+        if (password.length < 6) {
+            toast.error("password should at least 6 character").
+                return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.error("your password at least one uppercase character")
+            return;
+        } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)) {
+            toast.error("Your password at least one special character");
+            return;
+        }
+
 
         // create user
         createUser(email, password)
@@ -55,14 +68,14 @@ const Register = () => {
                 console.log(result.user);
                 navigate(location?.state ? location.state : '/')
                 toast.success('user create successfully')
-                
+                e.target.reset();
+
             })
             .catch(error => {
                 console.error(error);
             })
 
-            // reset
-            e.target.reset();
+        // reset
 
 
     }
