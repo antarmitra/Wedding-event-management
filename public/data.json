@@ -4,41 +4,41 @@
         "image": "https://i.ibb.co/k0bCZX1/c6.jpg",
         "title": "Traditional Wedding",
         "description": "Traditional Wedding offers a classic and timeless wedding experience. Embrace age-old traditions and customs to create a ceremony filled with cultural significance and beauty.",
-        "price": 19.99
+        "price": "$19.99"
     },
     {
         "id": 2,
         "image": "https://i.ibb.co/BKXNk89/c1.webp",
         "title": "Virtual Wedding",
         "description": "Virtual Wedding is  gateway to a modern and technologically advanced wedding. Celebrate your special day online, connecting with loved ones from around the in a virtual environment.",
-        "price": 29.99
+        "price": "$29.99"
     },
     {
         "id": 3,
         "image": "https://i.ibb.co/H2GpkHL/c2.webp",
         "title": "Destination Wedding",
         "description": "Destination Wedding is your ticket to an exotic and breathtaking wedding in a faraway paradise. Say your vows in a stunning location, making your special day a memorable adventure.",
-        "price": 39.99
+        "price": "$39.66"
     },
     {
         "id": 4,
         "image": "https://i.ibb.co/xHMSCbN/c3.jpg",
         "title": "Weekend Wedding",
         "description": "Weekend Wedding extends the joy of your wedding celebration over a whole weekend. Enjoy an extended party with friends and family, creating lasting memories.",
-        "price": 49.99
+        "price": "$45.32"
     },
     {
         "id": 5,
         "image": "https://i.ibb.co/cxFn4mj/c4.jpg",
         "title": "Celebrity Wedding",
         "description": "Weekend Wedding extends the joy of your wedding celebration over a whole weekend. Enjoy an extended party with friends and family, creating lasting memories.",
-        "price": 59.99
+        "price": "$21.52"
     },
     {
         "id": 6,
         "image": "https://i.ibb.co/qjKLQNj/c5.jpg",
         "title": "Adventure Wedding",
         "description": "Adventure Wedding is for the bold and unconventional. Say I do in an exciting and unique way, creating memories filled with thrilling experiences at an affordable price.",
-        "price": 69.99
+        "price": "$69.51"
     }
 ]

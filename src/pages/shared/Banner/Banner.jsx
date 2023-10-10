@@ -13,10 +13,6 @@ const Banner = () => {
                         <div className='mt-10'>
                             <button className=" btn bg-orange-400 text-white text-lg font-semibold">See More<AiOutlineArrowRight></AiOutlineArrowRight></button>
                         </div>
-                        {/* <div className='p-5'>
-                            <input type="text" placeholder="Search here....." className=" py-3 px-5 rounded-lg lg:w-full max-w-xs text-black" />
-                            <button className="bg-[#FF444A] text-white py-3 px-5 rounded-e-md  text-[16px]">Search</button>
-                        </div> */}
                     </div>
                 </div>
             </div>

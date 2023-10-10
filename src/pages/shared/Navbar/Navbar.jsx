@@ -1,26 +1,45 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
+
     const navLinks = <>
         <div className="lg:flex justify-between gap-14 items-center">
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/">Home</NavLink></li>
-            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/login">Login</NavLink></li>
+            <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/gallery">Gallery</NavLink></li>
             <li><NavLink className="text-lg font-semibold text-white  px-2 py-1 rounded-lg" to="/register">Register</NavLink></li>
 
-            <div className="flex gap-2 mt-4 md:mt-4 lg:mt-0">
-                <div className="navbar-end">
-                    <Link to="/login">
-                        <button className="text-lg font-semibold text-white bg-orange-400 px-5 py-2 rounded-md">Login</button>
-                    </Link>
-                </div>
-                <div className="navbar-end">
-                    <Link to="/register">
-                        <button className="text-lg text-white font-semibold bg-orange-400 px-5 py-2 rounded-md">Register</button>
-                    </Link>
-                </div>
-            </div>
+
+
+            {
+                user ?
+                    <button onClick={handleSignOut} className="btn bg-orange-400 text-white">Sign Out</button>
+                    :
+                    <div className="flex gap-2 mt-4 md:mt-4 lg:mt-0">
+                        <div className="navbar-end">
+                            <Link to="/login">
+                                <button className="text-lg font-semibold text-white bg-orange-400 px-5 py-2 rounded-md">Login</button>
+                            </Link>
+                        </div>
+                        <div className="navbar-end">
+                            <Link to="/register">
+                                <button className="text-lg text-white font-semibold bg-orange-400 px-5 py-2 rounded-md">Register</button>
+                            </Link>
+                        </div>
+                    </div>
+
+            }
+
+
         </div>
     </>
     return (
